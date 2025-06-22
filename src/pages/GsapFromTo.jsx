@@ -1,10 +1,29 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const GsapFromTo = () => {
   // TODO: Implement the gsap.fromTo() method
-
+  useGSAP(() => {
+    gsap.fromTo(
+      "#red-box",
+      {
+        x: 0,
+        rotation: 0,
+        borderRadius: "0%",
+      },
+      {
+        x: 250,
+        repeat: -1,
+        yoyo: true,
+        borderRadius: "100%",
+        rotation: 360,
+        duration: 2,
+        ease: "bounce.out",
+      }
+    );
+  }, []);
   return (
     <main>
       <h1>GsapFromTo</h1>
-
       <p className="mt-5 text-gray-500">
         The <code>gsap.fromTo()</code> method is used to animate elements from a
         new state to a new state.
